@@ -1,10 +1,13 @@
 package utils
 
 import (
+	"crypto/elliptic"
 	"crypto/md5"
 	"encoding/hex"
 	"fmt"
 	"io/ioutil"
+
+	"github.com/cryptokass/splashecdsa"
 )
 
 // GenerateContractHash - Returns the hash/address for
@@ -22,4 +25,11 @@ func LoadContractFromFile(path string) string {
 		fmt.Print(err)
 	}
 	return string(b)
+}
+
+// NewRandomAddress - Return random contract address
+func NewRandomAddress() string {
+	priv, _ := splashecdsa.GenerateKeys(elliptic.P256())
+	publicKey := priv.GetPublicKey()
+	return string(hex.EncodeToString(publicKey.GetAddress(true)))
 }

@@ -10,14 +10,14 @@ import (
 
 func main() {
 	// Run examples
-	exampleOne()
-	exampleTwo()
+	// exampleOne()
+	// exampleTwo()
 	exampleThree()
 }
 
 func exampleOne() {
 	// Create a new VM
-	vm := primelua.NewVM(1, "TSTx8865a8a95769d2479c63df708712df59")
+	vm := primelua.NewVM(1, 1, "", "TSTx8865a8a95769d2479c63df708712df59")
 
 	// Deploy contract
 	contractAddr := vm.DeployContract(utils.LoadContractFromFile("./example/contract/example-1.lua"))
@@ -32,7 +32,7 @@ func exampleOne() {
 
 func exampleTwo() {
 	// Create a new VM
-	vm := primelua.NewVM(1, "TSTx8865a8a95769d2479c63df708712df59")
+	vm := primelua.NewVM(1, 1, "", "TSTx8865a8a95769d2479c63df708712df59")
 
 	// Deploy contract
 	contractAddr := vm.DeployContract(utils.LoadContractFromFile("./example/contract/example-2.lua"))
@@ -50,7 +50,7 @@ func exampleTwo() {
 
 func exampleThree() {
 	// Create a new VM
-	vm := primelua.NewVM(1, "TSTx8865a8a95769d2479c63df708712df59")
+	vm := primelua.NewVM(1, 1, "e", "TSTx8865a8a95769d2479c63df708712df59")
 
 	// Deploy contract and print address
 	contractAddr := vm.DeployContract(utils.LoadContractFromFile("./example/contract/example-3.lua"))
